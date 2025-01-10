@@ -2,14 +2,11 @@ package com.javacademy.new_york_times.repository;
 
 import com.javacademy.new_york_times.entity.NewsEntity;
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
@@ -19,11 +16,12 @@ import java.util.stream.IntStream;
 @Component
 public class NewsRepository {
     private final AtomicInteger counter = new AtomicInteger();
+    @Getter
     private final Map<Integer, NewsEntity> data = new TreeMap<>();
 
     @PostConstruct
     public void init() {
-        IntStream.range(0, 1000).boxed().forEach(e -> save(createNews()));
+        IntStream.range(0, 55).boxed().forEach(e -> save(createNews()));
     }
 
     private NewsEntity createNews() {

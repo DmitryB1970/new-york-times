@@ -23,6 +23,7 @@ public class NewsService {
     /**
      * Переписать этот метод
      */
+
     public List<NewsDto> findAll() {
         return newsMapper.toDtos(newsRepository.findAll());
     }
